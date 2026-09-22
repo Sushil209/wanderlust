@@ -1,0 +1,54 @@
+<%layout("layouts/boilerplate") %>
+
+    <body>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <h3>here you can edit </h3>
+                <form method="post" action="/listings/<%= data.id%>?_method=put" class="needs-validation" novalidate enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" size="full" name="title" class="form-control" value="<%= data.title%>"required>
+                        <div class="invalid-feedback">title should be valid</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" name="description" required><%= data.description%></textarea>
+                         <div class="invalid-feedback">description should be valid</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p>Original Listing Image</p>
+                        <img src="<%= originalImageUrl %>">
+                    </div>
+                    
+
+                    <div class="mb-3">
+                        <label for="image[url]" class="form-label">Upload image</label>
+                        <input type="file" class="form-control" name="image[url]" >
+                         <div class="invalid-feedback">image link should be valid</div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" name="price" value="<%= data.price%>"required>
+                             <div class="invalid-feedback">price should be valid</div>
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" name="country" value="<%= data.country%>" required>
+                             <div class="invalid-feedback">Country should be valid</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" name="location" value="<%= data.location%>"required>
+                         <div class="invalid-feedback">location should be valid</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark mt-3 edit-btn">Edit</button>
+                </form>
+            </div>
+        </div>
+    </body>
