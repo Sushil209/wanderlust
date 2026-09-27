@@ -96,9 +96,9 @@ app.use((req,res,next)=>{
     next();
 })
 
-// app.get("/",(req,res)=>{
-//     res.send("this  is the home page");
-// })
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+})
 
 
 
