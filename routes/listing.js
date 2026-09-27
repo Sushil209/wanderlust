@@ -34,13 +34,13 @@ router.get("/:id/edit",isloggedIn,isOwner,wrapAsync(listingController.editListin
 
 // booking route
 
-router.get("/booking/:id",async(req,res)=>{
+router.get("/booking/:id",isloggedIn,async(req,res)=>{
     let {id} = req.params;
     let listing = await Listing.findById(id);
     res.render("listings/book.ejs",{listing});
 })
 
-router.post("/booking/:id",async(req,res)=>{
+router.post("/booking/:id",isloggedIn,async(req,res)=>{
     let {id} = req.params;
     let {checkIn,checkOut,guests} = req.body;
 
